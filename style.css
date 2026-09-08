@@ -1,23 +1,24 @@
 ```css
 /* =========================================================
-   ROOT
+   ROOT / COLORS
    ========================================================= */
 
 :root{
-  --bg: #fdf3f5;
-  --bg-deep: #fbe6ec;
+  --bg: #f7e4e9;
+  --bg-deep: #f3d9e0;
 
-  --pink: #f2b9c7;
-  --pink-deep: #e39aad;
-  --pink-darker: #d98198;
-  --pink-soft: #f8dce3;
+  --pink: #efb5c4;
+  --pink-deep: #dc95a9;
+  --pink-darker: #c97891;
+  --pink-soft: #f8dfe5;
 
-  --gold: #cf9f6e;
+  --gold: #cba071;
 
-  --paper: #fffdf9;
+  /* Тёплый цвет бумаги */
+  --paper: #fff8f0;
 
-  --text: #5b4550;
-  --text-light: #9c8891;
+  --text: #59464d;
+  --text-light: #9b858d;
 
   --font-heading: 'Playfair Display', serif;
   --font-script: 'Marck Script', cursive;
@@ -45,16 +46,25 @@ body{
   min-height:100vh;
 
   background:
+    radial-gradient(
+      circle at 18% 15%,
+      rgba(239,181,196,.20),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 82% 80%,
+      rgba(203,160,113,.06),
+      transparent 25%
+    ),
     linear-gradient(
       180deg,
-      var(--bg) 0%,
-      var(--bg-deep) 100%
+      var(--bg),
+      var(--bg-deep)
     );
 
   color:var(--text);
 
   font-family:var(--font-body);
-
   font-weight:300;
 
   line-height:1.7;
@@ -89,7 +99,6 @@ button{
 
 .ambient{
   position:fixed;
-
   inset:0;
 
   z-index:0;
@@ -157,7 +166,7 @@ button{
 
 
 /* =========================================================
-   ENVELOPE SCREEN
+   SCREEN — ENVELOPE
    ========================================================= */
 
 #envelope-screen{
@@ -179,6 +188,8 @@ button{
 }
 
 .envelope-wrap{
+  width:100%;
+
   display:flex;
 
   flex-direction:column;
@@ -186,8 +197,6 @@ button{
   align-items:center;
 
   gap:28px;
-
-  width:100%;
 }
 
 
@@ -203,7 +212,6 @@ button{
   height:212px;
 
   max-width:86vw;
-
   max-height:65vw;
 
   perspective:1200px;
@@ -271,7 +279,7 @@ button{
 }
 
 
-/* subtle light */
+/* envelope light */
 
 .env-pocket::before{
 
@@ -292,7 +300,7 @@ button{
 }
 
 
-/* bottom envelope folds */
+/* envelope folds */
 
 .env-pocket::after{
 
@@ -327,7 +335,7 @@ button{
 
 
 /* =========================================================
-   TOP FLAP
+   TOP ENVELOPE FLAP
    ========================================================= */
 
 .env-flap-top{
@@ -396,7 +404,7 @@ button{
 
 
 /* =========================================================
-   LETTER INSIDE ENVELOPE
+   LETTER INSIDE
    ========================================================= */
 
 .env-letter{
@@ -424,18 +432,23 @@ button{
 
   background:
     linear-gradient(
-      180deg,
-      #fffefa,
-      #fff9f5
+      145deg,
+      #fffaf3 0%,
+      #fff7ee 55%,
+      #f8eee5 100%
     );
 
   box-shadow:
 
-    0 12px 28px
-    rgba(60,40,45,.11),
+    0 14px 30px
+    rgba(66,45,51,.12),
 
     0 2px 5px
-    rgba(60,40,45,.06);
+    rgba(66,45,51,.06),
+
+    inset
+    0 0 0 1px
+    rgba(155,110,120,.10);
 
   opacity:0;
 
@@ -445,7 +458,7 @@ button{
   transition:
 
     transform
-    1.4s
+    1.5s
     var(--ease),
 
     opacity
@@ -454,11 +467,11 @@ button{
 
     z-index
     0s
-    1.4s;
+    1.5s;
 }
 
 
-/* subtle paper edge */
+/* paper inner border */
 
 .env-letter::before{
 
@@ -478,7 +491,7 @@ button{
 }
 
 
-/* paper texture */
+/* subtle paper texture */
 
 .env-letter::after{
 
@@ -488,18 +501,18 @@ button{
 
   inset:0;
 
-  opacity:.22;
+  opacity:.20;
 
   pointer-events:none;
 
   background:
     radial-gradient(
       circle at 20% 20%,
-      rgba(120,90,95,.06) 0 1px,
+      rgba(100,75,75,.07) 0 1px,
       transparent 1.5px
     );
 
-  background-size:8px 8px;
+  background-size:9px 9px;
 }
 
 
@@ -511,13 +524,16 @@ button{
 
   z-index:2;
 
-  padding:0 10px;
+  padding:
+    0 10px;
 
   text-align:center;
 
-  color:var(--pink-darker);
+  color:
+    var(--pink-darker);
 
-  font-family:var(--font-script);
+  font-family:
+    var(--font-script);
 
   font-size:
     clamp(
@@ -531,7 +547,7 @@ button{
 
 
 /* =========================================================
-   OPENED ENVELOPE
+   ENVELOPE OPEN
    ========================================================= */
 
 .envelope.open .env-flap-top{
@@ -539,7 +555,6 @@ button{
   transform:
     rotateX(-165deg);
 }
-
 
 .envelope.open .env-seal{
 
@@ -551,7 +566,6 @@ button{
 
   pointer-events:none;
 }
-
 
 .envelope.open .env-letter{
 
@@ -581,7 +595,7 @@ button{
 
 
 /* =========================================================
-   SEAL / BUTTON
+   SEAL BUTTON
    ========================================================= */
 
 .env-seal{
@@ -603,7 +617,10 @@ button{
 
   border-radius:50%;
 
+  cursor:pointer;
+
   background:
+
     radial-gradient(
       circle at 34% 28%,
       #f8d8e0 0%,
@@ -613,7 +630,8 @@ button{
 
   color:#fff;
 
-  font-family:var(--font-body);
+  font-family:
+    var(--font-body);
 
   font-size:11px;
 
@@ -622,8 +640,6 @@ button{
   line-height:1.35;
 
   letter-spacing:.03em;
-
-  cursor:pointer;
 
   box-shadow:
 
@@ -946,7 +962,7 @@ button{
 
 
 /* =========================================================
-   MAIN CONTENT
+   MAIN
    ========================================================= */
 
 #mainContent{
@@ -1004,7 +1020,8 @@ button{
 
 .intro p{
 
-  font-family:var(--font-heading);
+  font-family:
+    var(--font-heading);
 
   font-style:italic;
 
@@ -1043,7 +1060,6 @@ button{
   display:flex;
 
   align-items:center;
-
   justify-content:center;
 
   overflow:hidden;
@@ -1223,7 +1239,8 @@ button{
 
   color:var(--text);
 
-  font-family:var(--font-heading);
+  font-family:
+    var(--font-heading);
 
   font-size:19px;
 
@@ -1430,8 +1447,6 @@ button{
     animation-duration:.001ms !important;
 
     transition-duration:.001ms !important;
-
-    scroll-behavior:auto !important;
   }
 }
 ```
