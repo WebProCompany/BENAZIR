@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Для Беназир ♡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Marck+Script&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+  <div class="ambient" aria-hidden="true"><span></span><span></span></div>
+
+  <!-- ============ SCREEN 1: ENVELOPE ============ -->
+  <section id="envelope-screen">
+    <div class="envelope-wrap">
+
+      <div class="envelope" id="envelope">
+        <div class="env-back"></div>
+        <div class="env-letter" id="envLetter">
+          <p class="env-letter-heading">Для Беназир <span class="heart">♡</span></p>
+        </div>
+        <div class="env-pocket-front"></div>
+        <div class="env-flap-top" id="envFlapTop"></div>
+        <button class="env-seal" id="openLetterBtn" aria-label="Открыть письмо">♥</button>
+      </div>
+
+      <p class="hint" id="scrollHint">Прокрути вниз, чтобы читать дальше ↓</p>
+    </div>
+  </section>
+
+  <!-- ============ NAME MODAL ============ -->
+  <div class="modal-overlay" id="nameModal">
+    <div class="modal-box">
+      <p class="modal-title">Для кого это письмо?</p>
+      <input type="text" id="nameInput" placeholder="Введите своё имя..." autocomplete="off">
+      <button id="submitName">Открыть <span class="heart">💌</span></button>
+      <p class="modal-error" id="modalError">Кажется, это письмо не для тебя... ♡</p>
+    </div>
+  </div>
+
+  <!-- ============ MAIN LETTER CONTENT ============ -->
+  <main id="mainContent">
+
+    <section class="intro" data-reveal>
+      <p>Беназир, это маленькое письмо я сделал специально для тебя...</p>
+    </section>
+
+    <!-- ============ PHOTO STACK STORY ============ -->
+    <section class="photo-stack-wrapper" id="photoStackWrapper">
+      <div class="photo-stack-sticky">
+
+        <div class="photo-card" data-rot="-6" style="z-index:4;">
+          <div class="photo ph-1">
+            <span class="ph-label">Фото 1</span>
+          </div>
+        </div>
+
+        <div class="photo-card" data-rot="4" style="z-index:3;">
+          <div class="photo ph-2">
+            <span class="ph-label">Фото 2</span>
+          </div>
+        </div>
+
+        <div class="photo-card" data-rot="-4" style="z-index:2;">
+          <div class="photo ph-3">
+            <span class="ph-label">Фото 3</span>
+          </div>
+        </div>
+
+        <div class="photo-card" data-rot="5" style="z-index:1;">
+          <div class="photo ph-4">
+            <span class="ph-label">Фото 4</span>
+          </div>
+        </div>
+
+        <p class="caption" data-caption="0">С этого всё началось...</p>
+        <p class="caption" data-caption="1">Один из моих любимых моментов.</p>
+        <p class="caption" data-caption="2">Эту улыбку невозможно забыть.</p>
+        <p class="caption" data-caption="3">И это только начало нашей истории.</p>
+
+      </div>
+    </section>
+
+    <!-- ============ MUSIC BLOCK ============ -->
+    <section class="music-block" data-reveal>
+      <p class="music-label">♪ Наша песня</p>
+      <button id="playPause" class="play-btn" aria-label="Воспроизвести">
+        <span id="playIcon">▶</span>
+      </button>
+      <p class="music-hint">нажми, чтобы включить</p>
+      <!-- Замените src на свой файл, например audio/our-song.mp3 -->
+      <audio id="bgMusic" loop preload="none">
+        <source src="audio/our-song.mp3" type="audio/mpeg">
+      </audio>
+    </section>
+
+    <!-- ============ FINAL SCREEN ============ -->
+    <section class="final-screen" data-reveal>
+      <p class="final-name">Беназир</p>
+      <p class="final-thanks">Спасибо, что ты есть. <span class="heart">♡</span></p>
+      <p class="final-signature">Это всего лишь маленький подарок для тебя.</p>
+    </section>
+
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>
