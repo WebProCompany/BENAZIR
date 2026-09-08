@@ -1,31 +1,36 @@
+```css
 /* =========================================================
    ROOT
    ========================================================= */
 
 :root{
-  --bg: #fdf3f5;
-  --bg-deep: #fbe6ec;
+  --bg: #fdf5f7;
+  --bg-deep: #f8e8ed;
 
-  --pink: #f2b9c7;
-  --pink-soft: #f7d8df;
-  --pink-deep: #e39aad;
-  --pink-darker: #d98198;
+  --pink: #efb5c4;
+  --pink-light: #f8dce4;
+  --pink-deep: #d992a8;
+  --pink-dark: #cb7891;
 
-  --gold: #cf9f6e;
+  --gold: #cba071;
 
   --paper: #fffdf9;
-  --paper-shadow: rgba(91,69,80,0.20);
+  --paper-warm: #fcf7f2;
 
-  --text: #5b4550;
-  --text-light: #9c8891;
+  --text: #5a4650;
+  --text-light: #9b8790;
 
-  --white: #ffffff;
+  --shadow-paper:
+    rgba(65, 42, 50, .16);
+
+  --shadow-envelope:
+    rgba(172, 92, 116, .22);
 
   --font-heading: 'Playfair Display', serif;
   --font-script: 'Marck Script', cursive;
   --font-body: 'Nunito', sans-serif;
 
-  --ease: cubic-bezier(.22,1,.36,1);
+  --ease: cubic-bezier(.22, 1, .36, 1);
 }
 
 
@@ -46,30 +51,31 @@ html{
 body{
   min-height:100vh;
 
+  color:var(--text);
+
+  font-family:var(--font-body);
+  font-weight:300;
+
+  line-height:1.7;
+
+  overflow-x:hidden;
+
   background:
     radial-gradient(
-      circle at 20% 15%,
-      rgba(242,185,199,.24),
-      transparent 30%
+      circle at 18% 15%,
+      rgba(239,181,196,.23),
+      transparent 28%
     ),
     radial-gradient(
-      circle at 85% 85%,
-      rgba(207,159,110,.08),
-      transparent 25%
+      circle at 84% 82%,
+      rgba(203,160,113,.07),
+      transparent 24%
     ),
     linear-gradient(
       180deg,
       var(--bg),
       var(--bg-deep)
     );
-
-  color:var(--text);
-
-  font-family:var(--font-body);
-  font-weight:300;
-  line-height:1.7;
-
-  overflow-x:hidden;
 
   position:relative;
 }
@@ -89,12 +95,12 @@ button{
 }
 
 .heart{
-  color:var(--pink-darker);
+  color:var(--pink-dark);
 }
 
 
 /* =========================================================
-   AMBIENT
+   BACKGROUND LIGHT
    ========================================================= */
 
 .ambient{
@@ -103,8 +109,8 @@ button{
 
   z-index:0;
 
-  pointer-events:none;
   overflow:hidden;
+  pointer-events:none;
 }
 
 .ambient span{
@@ -112,39 +118,39 @@ button{
 
   border-radius:50%;
 
-  filter:blur(70px);
+  filter:blur(80px);
 
-  opacity:.45;
+  opacity:.38;
 
   animation:
     ambientFloat
-    22s
+    24s
     ease-in-out
     infinite;
 }
 
 .ambient span:nth-child(1){
-  width:340px;
-  height:340px;
+  width:360px;
+  height:360px;
+
+  top:-140px;
+  left:-100px;
 
   background:var(--pink);
-
-  top:-120px;
-  left:-100px;
 }
 
 .ambient span:nth-child(2){
-  width:300px;
-  height:300px;
+  width:320px;
+  height:320px;
+
+  right:-110px;
+  bottom:-120px;
 
   background:var(--gold);
 
-  opacity:.15;
+  opacity:.13;
 
-  right:-120px;
-  bottom:-100px;
-
-  animation-duration:28s;
+  animation-duration:30s;
   animation-delay:-8s;
 }
 
@@ -156,7 +162,7 @@ button{
   }
 
   50%{
-    transform:translate3d(3%,4%,0);
+    transform:translate3d(4%,5%,0);
   }
 }
 
@@ -174,9 +180,9 @@ button{
   align-items:center;
   justify-content:center;
 
-  z-index:2;
-
   padding:24px;
+
+  z-index:2;
 
   overflow:hidden;
 }
@@ -188,7 +194,7 @@ button{
   flex-direction:column;
   align-items:center;
 
-  gap:28px;
+  gap:26px;
 }
 
 
@@ -200,11 +206,12 @@ button{
 
   position:relative;
 
-  width:min(86vw,320px);
-  height:min(58vw,212px);
+  width:min(86vw, 330px);
+  height:min(56vw, 220px);
+
+  perspective:1800px;
 
   transform-style:preserve-3d;
-  perspective:1400px;
 
   opacity:0;
 
@@ -218,11 +225,6 @@ button{
     var(--ease)
     .25s
     forwards;
-
-  transition:
-    width 1.35s var(--ease),
-    height 1.35s var(--ease),
-    transform 1.35s var(--ease);
 }
 
 @keyframes envelopeIn{
@@ -238,7 +240,7 @@ button{
 
 
 /* =========================================================
-   ENVELOPE BACK
+   ENVELOPE BACK / POCKET
    ========================================================= */
 
 .env-pocket{
@@ -246,31 +248,43 @@ button{
   position:absolute;
   inset:0;
 
-  border-radius:12px;
+  z-index:1;
+
+  border-radius:13px;
 
   background:
     linear-gradient(
-      155deg,
-      #f4becb,
-      var(--pink-deep)
+      145deg,
+      #f6c9d4 0%,
+      #edb0bf 52%,
+      #db93a9 100%
     );
-
-  box-shadow:
-    0 30px 70px -24px
-    rgba(217,129,152,.60);
-
-  z-index:1;
 
   overflow:hidden;
 
-  transition:
-    opacity 1.2s var(--ease);
+  box-shadow:
+
+    0 30px 65px
+    -23px
+    rgba(176,88,115,.40),
+
+    0 8px 20px
+    rgba(91,69,80,.08),
+
+    inset
+    0 1px 0
+    rgba(255,255,255,.45),
+
+    inset
+    0 -1px 0
+    rgba(120,60,76,.09);
 }
 
 
-/* subtle envelope paper detail */
+/* soft paper highlight */
 
 .env-pocket::before{
+
   content:"";
 
   position:absolute;
@@ -278,129 +292,101 @@ button{
 
   background:
     linear-gradient(
-      145deg,
-      rgba(255,255,255,.18),
-      transparent 40%
+      118deg,
+      rgba(255,255,255,.28),
+      transparent 34%
     );
 
   pointer-events:none;
 }
 
+
+/* lower envelope folds */
+
 .env-pocket::after{
+
   content:"";
 
   position:absolute;
 
-  width:100%;
-  height:100%;
-
   left:0;
-  top:0;
+  right:0;
+  bottom:0;
+
+  height:74%;
 
   background:
+
     linear-gradient(
-      35deg,
-      transparent 48%,
-      rgba(255,255,255,.12) 49%,
-      transparent 51%
+      31deg,
+      transparent 49.5%,
+      rgba(255,255,255,.16) 50%,
+      transparent 50.6%
     ),
+
     linear-gradient(
-      -35deg,
-      transparent 48%,
-      rgba(255,255,255,.10) 49%,
-      transparent 51%
+      -31deg,
+      transparent 49.5%,
+      rgba(255,255,255,.11) 50%,
+      transparent 50.6%
     );
 
-  opacity:.45;
+  opacity:.72;
 
   pointer-events:none;
 }
 
 
 /* =========================================================
-   ENVELOPE TOP FLAP
-   ========================================================= */
-
-.env-flap-top{
-
-  position:absolute;
-
-  left:0;
-  top:0;
-
-  width:100%;
-  height:57%;
-
-  background:
-    linear-gradient(
-      200deg,
-      var(--pink-deep),
-      var(--pink-darker)
-    );
-
-  clip-path:
-    polygon(
-      0 0,
-      100% 0,
-      50% 100%
-    );
-
-  transform-origin:
-    50% 0%;
-
-  transition:
-    transform
-    1.25s
-    var(--ease);
-
-  z-index:5;
-
-  filter:
-    drop-shadow(
-      0 6px 10px
-      rgba(0,0,0,.08)
-    );
-}
-
-
-/* =========================================================
-   LETTER SHEET
+   LETTER
    ========================================================= */
 
 .letter-sheet{
 
   position:absolute;
 
-  left:12%;
-  top:12%;
+  left:11%;
+  top:11%;
 
-  width:76%;
-  height:76%;
-
-  border-radius:5px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #fffefa,
-      #fffaf7
-    );
-
-  box-shadow:
-    0 14px 35px
-    rgba(91,69,80,.16);
+  width:78%;
+  height:78%;
 
   z-index:2;
 
-  overflow:visible;
+  border-radius:5px;
 
-  transform-origin:center center;
+  overflow:hidden;
+
+  background:
+
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.99),
+      rgba(255,250,246,.99)
+    );
+
+  box-shadow:
+
+    0 12px 25px
+    rgba(64,42,50,.10),
+
+    0 2px 5px
+    rgba(64,42,50,.07),
+
+    inset
+    0 0 0
+    1px
+    rgba(160,120,130,.08);
 
   transform:
-    translateY(5px)
-    scale(.97);
+
+    translateY(3px)
+    scale(.985);
+
+  transform-origin:center;
 
   transition:
+
     left 1.4s var(--ease),
     top 1.4s var(--ease),
     width 1.4s var(--ease),
@@ -410,8 +396,46 @@ button{
 }
 
 
+/* subtle paper grain simulation */
+
+.letter-sheet::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  z-index:10;
+
+  pointer-events:none;
+
+  opacity:.28;
+
+  background:
+
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(130,100,100,.06) 0 1px,
+      transparent 1.5px
+    ),
+
+    radial-gradient(
+      circle at 80% 65%,
+      rgba(130,100,100,.045) 0 1px,
+      transparent 1.5px
+    );
+
+  background-size:
+    8px 8px,
+    11px 11px;
+
+  mix-blend-mode:multiply;
+}
+
+
 /* =========================================================
-   CENTER OF LETTER
+   LETTER INNER FRAME
    ========================================================= */
 
 .letter-center{
@@ -419,16 +443,30 @@ button{
   position:absolute;
   inset:0;
 
-  border-radius:5px;
+  overflow:hidden;
 
   background:
     linear-gradient(
       180deg,
       rgba(255,255,255,.96),
-      rgba(255,250,247,.98)
+      rgba(255,250,247,.97)
     );
+}
 
-  overflow:hidden;
+.letter-center::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:11px;
+
+  border:
+    1px
+    solid
+    rgba(203,120,145,.13);
+
+  border-radius:3px;
 }
 
 .letter-center::after{
@@ -436,29 +474,37 @@ button{
   content:"";
 
   position:absolute;
-  inset:12px;
 
-  border:
-    1px
-    solid
-    rgba(217,129,152,.14);
+  left:20px;
+  right:20px;
 
-  border-radius:3px;
+  top:50%;
 
-  pointer-events:none;
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(203,120,145,.10),
+      transparent
+    );
+
+  opacity:.7;
 }
 
 
 /* =========================================================
-   LETTER CONTENT
+   LETTER TEXT
    ========================================================= */
 
 .letter-content{
 
   position:absolute;
 
-  left:20px;
-  right:20px;
+  left:22px;
+  right:22px;
+
   top:50%;
 
   transform:
@@ -466,59 +512,59 @@ button{
 
   text-align:center;
 
-  opacity:.92;
+  z-index:12;
 }
 
 .letter-small{
 
-  font-size:10px;
+  margin-bottom:6px;
 
-  letter-spacing:.14em;
+  font-size:9px;
+
+  letter-spacing:.18em;
 
   text-transform:uppercase;
 
   color:var(--text-light);
-
-  margin-bottom:7px;
 }
 
 .letter-title{
 
   font-family:var(--font-script);
 
-  font-size:clamp(
-    24px,
-    6vw,
-    32px
-  );
+  font-size:
+    clamp(
+      25px,
+      6vw,
+      34px
+    );
 
-  color:var(--pink-darker);
+  color:var(--pink-dark);
+
+  line-height:1.15;
 }
 
 
 /* =========================================================
-   FOLD PIECES
+   FOLDS
    ========================================================= */
 
 .letter-fold{
 
   position:absolute;
 
-  background:
-    linear-gradient(
-      145deg,
-      #fffdfb,
-      #fdf3f2
-    );
+  z-index:14;
 
-  z-index:4;
+  pointer-events:none;
 
   transition:
+
     transform
-    1.35s
+    1.45s
     var(--ease),
+
     opacity
-    .8s
+    1s
     ease;
 }
 
@@ -527,8 +573,8 @@ button{
 
 .fold-top{
 
-  left:0;
   top:0;
+  left:0;
 
   width:100%;
   height:50%;
@@ -540,8 +586,20 @@ button{
       50% 100%
     );
 
+  background:
+    linear-gradient(
+      160deg,
+      #fffefa,
+      #f9eeeb
+    );
+
   transform-origin:
     50% 0%;
+
+  box-shadow:
+    inset
+    0 -1px
+    rgba(120,80,90,.08);
 }
 
 
@@ -560,6 +618,13 @@ button{
       0 0,
       100% 50%,
       0 100%
+    );
+
+  background:
+    linear-gradient(
+      90deg,
+      #fffefa,
+      #f6ecea
     );
 
   transform-origin:
@@ -584,6 +649,13 @@ button{
       100% 100%
     );
 
+  background:
+    linear-gradient(
+      270deg,
+      #fffefa,
+      #f6ecea
+    );
+
   transform-origin:
     100% 50%;
 }
@@ -606,41 +678,43 @@ button{
       50% 0
     );
 
+  background:
+    linear-gradient(
+      180deg,
+      #f8efec,
+      #fffefa
+    );
+
   transform-origin:
     50% 100%;
 }
 
 
 /* =========================================================
-   FIRST STEP — ONLY TOP FLAP OPENS
+   FIRST STAGE
+   ONLY THE TOP FLAP OPENS
    ========================================================= */
 
 .envelope.stage-top .env-flap-top{
 
   transform:
-    rotateX(-168deg);
+    rotateX(-170deg);
 }
 
 
 /* =========================================================
-   FULL OPEN
+   FULL LETTER
    ========================================================= */
 
 .envelope.full-open{
 
-  width:min(84vw,400px);
-  height:min(124vw,520px);
+  width:min(84vw, 400px);
 
-  transform:
-    translateY(0)
-    scale(1);
+  height:min(124vw, 520px);
 }
 
 
-.envelope.full-open .env-flap-top{
-
-  transform:
-    rotateX(-168deg);
+.envelope.full-open .env-pocket{
 
   opacity:0;
 
@@ -648,7 +722,10 @@ button{
 }
 
 
-.envelope.full-open .env-pocket{
+.envelope.full-open .env-flap-top{
+
+  transform:
+    rotateX(-170deg);
 
   opacity:0;
 
@@ -671,59 +748,130 @@ button{
   border-radius:8px;
 
   box-shadow:
-    0 30px 70px
-    rgba(91,69,80,.16);
 
-  z-index:8;
+    0 32px 75px
+    rgba(65,42,50,.16),
+
+    0 7px 16px
+    rgba(65,42,50,.07);
 }
 
 
 /* =========================================================
-   OPEN THE LETTER FOLDS
+   FOLD OPENING
    ========================================================= */
 
 .envelope.full-open .fold-top{
 
   transform:
-    rotateX(-180deg)
-    translateY(-2%);
+    rotateX(-180deg);
 
-  opacity:.1;
+  opacity:.02;
 }
 
 
 .envelope.full-open .fold-left{
 
   transform:
-    rotateY(-180deg)
-    translateX(-3%);
+    rotateY(-180deg);
 
-  opacity:.1;
+  opacity:.02;
 }
 
 
 .envelope.full-open .fold-right{
 
   transform:
-    rotateY(180deg)
-    translateX(3%);
+    rotateY(180deg);
 
-  opacity:.1;
+  opacity:.02;
 }
 
 
 .envelope.full-open .fold-bottom{
 
   transform:
-    rotateX(180deg)
-    translateY(2%);
+    rotateX(180deg);
 
-  opacity:.1;
+  opacity:.02;
 }
 
 
 /* =========================================================
-   SEAL
+   ENVELOPE TOP FLAP
+   ========================================================= */
+
+.env-flap-top{
+
+  position:absolute;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:57%;
+
+  z-index:5;
+
+  background:
+    linear-gradient(
+      200deg,
+      #e6a6b7,
+      #d989a0
+    );
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      50% 100%
+    );
+
+  transform-origin:
+    50% 0%;
+
+  transition:
+    transform
+    1.25s
+    var(--ease);
+
+  filter:
+
+    drop-shadow(
+      0 7px 9px
+      rgba(78,47,57,.11)
+    );
+}
+
+
+/* flap subtle highlight */
+
+.env-flap-top::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,.22),
+      transparent 38%
+    );
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      50% 100%
+    );
+}
+
+
+/* =========================================================
+   SEAL / BUTTON
    ========================================================= */
 
 .env-seal{
@@ -733,80 +881,82 @@ button{
   left:50%;
   top:50%;
 
+  width:86px;
+  height:86px;
+
   transform:
     translate(-50%,-50%);
-
-  width:84px;
-  height:84px;
 
   border:none;
   border-radius:50%;
 
-  background:
-    radial-gradient(
-      circle at 35% 28%,
-      #f8dce4,
-      var(--pink-darker)
-    );
+  z-index:20;
+
+  cursor:pointer;
 
   color:#fff;
+
+  background:
+
+    radial-gradient(
+      circle at 33% 25%,
+      #f8d8e1,
+      #dc8ea4 55%,
+      #cd7890 100%
+    );
 
   font-family:var(--font-body);
 
   font-size:11px;
+
   font-weight:600;
 
   line-height:1.35;
 
   letter-spacing:.03em;
 
-  cursor:pointer;
-
-  z-index:7;
-
   box-shadow:
-    0 10px 24px -7px
-    rgba(217,129,152,.72),
+
+    0 12px 25px
+    rgba(163,77,102,.32),
 
     inset
     0 2px 4px
-    rgba(255,255,255,.45);
+    rgba(255,255,255,.42),
+
+    inset
+    0 -3px 5px
+    rgba(103,47,62,.12);
 
   transition:
+
     transform .35s var(--ease),
-    opacity .55s ease,
-    box-shadow .35s ease;
+    opacity .55s ease;
 }
 
-.env-seal::after{
+
+.env-seal::before{
 
   content:"";
 
   position:absolute;
 
-  inset:-5px;
+  inset:5px;
 
   border:
     1px
     solid
-    rgba(255,255,255,.3);
+    rgba(255,255,255,.25);
 
   border-radius:50%;
 }
+
 
 .env-seal:hover{
 
   transform:
     translate(-50%,-50%)
-    scale(1.06);
-
-  box-shadow:
-    0 14px 30px -8px
-    rgba(217,129,152,.78),
-
-    inset
-    0 2px 4px
-    rgba(255,255,255,.5);
+    scale(1.05);
 }
 
 .env-seal:active{
@@ -817,15 +967,13 @@ button{
 }
 
 
-/* seal disappears after full opening */
-
 .envelope.full-open .env-seal{
 
   opacity:0;
 
   transform:
     translate(-50%,-50%)
-    scale(.5);
+    scale(.45);
 
   pointer-events:none;
 }
@@ -851,25 +999,7 @@ button{
 
 #envelope-screen.finished .hint{
 
-  opacity:1;
-
-  animation:
-    hintPulse
-    3s
-    ease-in-out
-    infinite;
-}
-
-@keyframes hintPulse{
-
-  0%,
-  100%{
-    opacity:.45;
-  }
-
-  50%{
-    opacity:1;
-  }
+  opacity:.8;
 }
 
 
@@ -885,19 +1015,18 @@ button{
   z-index:50;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
   padding:24px;
 
   background:
-    rgba(91,69,80,.22);
+    rgba(75,51,60,.20);
 
-  backdrop-filter:
-    blur(9px);
+  backdrop-filter:blur(10px);
 
-  -webkit-backdrop-filter:
-    blur(9px);
+  -webkit-backdrop-filter:blur(10px);
 
   opacity:0;
 
@@ -925,7 +1054,10 @@ button{
   width:100%;
   max-width:360px;
 
-  padding:38px 30px 32px;
+  padding:
+    38px
+    30px
+    32px;
 
   text-align:center;
 
@@ -936,20 +1068,22 @@ button{
       #fff8f7
     );
 
+  border-radius:22px;
+
   border:
     1px
     solid
-    rgba(217,129,152,.12);
-
-  border-radius:22px;
+    rgba(203,120,145,.10);
 
   box-shadow:
-    0 30px 70px -24px
-    rgba(91,69,80,.38);
+
+    0 35px 75px
+    -26px
+    rgba(70,45,55,.38);
 
   transform:
-    translateY(22px)
-    scale(.96);
+    translateY(20px)
+    scale(.965);
 
   transition:
     transform .55s var(--ease);
@@ -967,11 +1101,11 @@ button{
 
   font-family:var(--font-script);
 
-  font-size:32px;
+  font-size:31px;
 
   line-height:1;
 
-  color:var(--pink);
+  color:var(--pink-dark);
 
   margin-bottom:12px;
 }
@@ -983,9 +1117,7 @@ button{
 
   font-size:21px;
 
-  color:var(--text);
-
-  margin-bottom:4px;
+  margin-bottom:5px;
 }
 
 
@@ -1003,30 +1135,29 @@ button{
 
   width:100%;
 
-  border:
-    1px
-    solid
-    rgba(227,154,173,.65);
-
-  background:#fff;
-
-  border-radius:999px;
-
   padding:
     13px
     20px;
 
-  font-family:var(--font-body);
-
-  font-size:15px;
-
-  color:var(--text);
-
   text-align:center;
+
+  border:
+    1px
+    solid
+    rgba(217,140,160,.52);
+
+  border-radius:999px;
 
   outline:none;
 
+  background:#fff;
+
+  color:var(--text);
+
+  font-size:15px;
+
   transition:
+
     border-color .25s ease,
     box-shadow .25s ease;
 }
@@ -1034,26 +1165,35 @@ button{
 #nameInput:focus{
 
   border-color:
-    var(--pink-darker);
+    var(--pink-dark);
 
   box-shadow:
     0 0 0 4px
-    rgba(217,129,152,.10);
+    rgba(203,120,145,.10);
 }
 
 #nameInput::placeholder{
-
   color:var(--text-light);
 }
 
 
 #submitName{
 
-  margin-top:18px;
-
   width:100%;
 
+  margin-top:18px;
+
+  padding:
+    13px
+    20px;
+
   border:none;
+
+  border-radius:999px;
+
+  cursor:pointer;
+
+  color:#fff;
 
   background:
     linear-gradient(
@@ -1062,23 +1202,14 @@ button{
       var(--pink-deep)
     );
 
-  color:#fff;
-
-  font-family:var(--font-body);
+  font-size:14px;
 
   font-weight:600;
 
-  font-size:14px;
-
-  padding:13px 20px;
-
-  border-radius:999px;
-
-  cursor:pointer;
-
   box-shadow:
-    0 12px 26px -10px
-    rgba(217,129,152,.70);
+    0 13px 28px
+    -11px
+    rgba(203,120,145,.72);
 
   transition:
     transform .25s var(--ease),
@@ -1091,35 +1222,29 @@ button{
     translateY(-2px);
 
   box-shadow:
-    0 16px 30px -10px
-    rgba(217,129,152,.76);
-}
-
-#submitName:active{
-
-  transform:
-    translateY(0)
-    scale(.98);
+    0 17px 32px
+    -10px
+    rgba(203,120,145,.80);
 }
 
 
 .modal-error{
 
-  margin-top:16px;
-
-  font-family:var(--font-script);
-
-  font-size:17px;
-
-  color:var(--pink-darker);
-
-  opacity:0;
+  margin-top:15px;
 
   max-height:0;
 
   overflow:hidden;
 
-  transform:translateY(-4px);
+  opacity:0;
+
+  color:var(--pink-dark);
+
+  font-family:var(--font-script);
+
+  font-size:17px;
+
+  transform:translateY(-5px);
 
   transition:
     opacity .35s ease,
@@ -1129,9 +1254,9 @@ button{
 
 .modal-error.show{
 
-  opacity:1;
-
   max-height:60px;
+
+  opacity:1;
 
   transform:translateY(0);
 }
@@ -1147,6 +1272,7 @@ button{
 
   z-index:1;
 }
+
 
 [data-reveal]{
 
@@ -1164,8 +1290,7 @@ button{
 
   opacity:1;
 
-  transform:
-    translateY(0);
+  transform:translateY(0);
 }
 
 
@@ -1189,15 +1314,15 @@ button{
 
 .intro-kicker{
 
+  margin-bottom:14px;
+
+  color:var(--pink-dark);
+
   font-size:11px;
 
   letter-spacing:.16em;
 
   text-transform:uppercase;
-
-  color:var(--pink-darker);
-
-  margin-bottom:14px;
 }
 
 .intro p:not(.intro-kicker){
@@ -1212,8 +1337,6 @@ button{
       3vw,
       25px
     );
-
-  color:var(--text);
 
   line-height:1.75;
 }
@@ -1246,7 +1369,6 @@ button{
   overflow:hidden;
 }
 
-
 .photo-card{
 
   position:absolute;
@@ -1258,18 +1380,14 @@ button{
   will-change:
     transform,
     opacity;
-
-  transition:
-    filter .4s ease;
 }
-
 
 .photo{
 
+  position:relative;
+
   width:100%;
   height:100%;
-
-  position:relative;
 
   display:flex;
 
@@ -1281,18 +1399,17 @@ button{
     14px
     34px;
 
+  background:var(--paper);
+
   border-radius:7px;
 
-  background:
-    var(--paper);
-
   box-shadow:
-    0 26px 50px -18px
+    0 26px 50px
+    -18px
     rgba(91,69,80,.35);
 
   overflow:hidden;
 }
-
 
 .photo::before{
 
@@ -1315,11 +1432,7 @@ button{
     );
 }
 
-
-/* placeholder variations */
-
 .ph-2::before{
-
   background:
     linear-gradient(
       160deg,
@@ -1330,18 +1443,16 @@ button{
 }
 
 .ph-3::before{
-
   background:
     linear-gradient(
       200deg,
       var(--pink),
-      var(--pink-darker) 60%,
+      var(--pink-dark) 60%,
       var(--bg-deep)
     );
 }
 
 .ph-4::before{
-
   background:
     linear-gradient(
       200deg,
@@ -1351,49 +1462,34 @@ button{
     );
 }
 
-
 .ph-label{
 
   position:relative;
 
   z-index:1;
 
+  color:
+    rgba(255,255,255,.90);
+
   font-size:13px;
 
   letter-spacing:.05em;
 
-  color:
-    rgba(255,255,255,.90);
-
   text-transform:uppercase;
 }
-
-
-/*
-  LATER replace the placeholder with a real image.
-
-  Example:
-
-  .ph-1::before{
-    background-image:url("images/photo1.jpg");
-    background-size:cover;
-    background-position:center;
-  }
-*/
 
 
 .caption{
 
   position:absolute;
 
+  left:50%;
   bottom:8%;
 
-  left:50%;
+  width:82%;
 
   transform:
     translateX(-50%);
-
-  width:82%;
 
   text-align:center;
 
@@ -1436,28 +1532,25 @@ button{
 
 .music-label{
 
-  font-family:var(--font-heading);
+  margin-bottom:20px;
 
-  font-style:italic;
+  font-family:var(--font-heading);
 
   font-size:19px;
 
-  color:var(--text);
-
-  margin-bottom:22px;
+  font-style:italic;
 }
 
 .music-player{
 
   display:flex;
 
-  align-items:center;
-
   justify-content:center;
 
-  gap:16px;
-}
+  align-items:center;
 
+  gap:15px;
+}
 
 .play-btn{
 
@@ -1470,6 +1563,10 @@ button{
 
   border-radius:50%;
 
+  cursor:pointer;
+
+  color:#fff;
+
   background:
     linear-gradient(
       135deg,
@@ -1477,33 +1574,20 @@ button{
       var(--pink-deep)
     );
 
-  color:#fff;
-
-  font-size:18px;
-
-  cursor:pointer;
-
   box-shadow:
-    0 14px 30px -10px
-    rgba(217,129,152,.65);
+    0 14px 30px
+    -10px
+    rgba(203,120,145,.65);
 
   transition:
-    transform .3s var(--ease),
-    box-shadow .3s ease;
+    transform .3s var(--ease);
 }
 
 .play-btn:hover{
-
-  transform:
-    scale(1.06);
-
-  box-shadow:
-    0 18px 34px -10px
-    rgba(217,129,152,.76);
+  transform:scale(1.06);
 }
 
 .play-btn.playing{
-
   animation:
     musicPulse
     1.8s
@@ -1516,17 +1600,18 @@ button{
   0%,
   100%{
     box-shadow:
-      0 14px 30px -10px
-      rgba(217,129,152,.65);
+      0 14px 30px
+      -10px
+      rgba(203,120,145,.65);
   }
 
   50%{
     box-shadow:
-      0 14px 38px -6px
-      rgba(217,129,152,.90);
+      0 14px 38px
+      -6px
+      rgba(203,120,145,.88);
   }
 }
-
 
 .music-info{
 
@@ -1544,13 +1629,9 @@ button{
   font-family:var(--font-heading);
 
   font-size:16px;
-
-  color:var(--text);
 }
 
 .music-hint{
-
-  margin-top:2px;
 
   font-size:12px;
 
@@ -1559,7 +1640,7 @@ button{
 
 
 /* =========================================================
-   FINAL SCREEN
+   FINAL
    ========================================================= */
 
 .final-screen{
@@ -1573,28 +1654,30 @@ button{
   align-items:center;
   justify-content:center;
 
-  text-align:center;
-
   padding:
     10vh
     28px
     16vh;
+
+  text-align:center;
 }
 
-
 .final-heart{
+
+  margin-bottom:8px;
+
+  color:var(--pink);
 
   font-family:var(--font-script);
 
   font-size:28px;
-
-  color:var(--pink);
-
-  margin-bottom:8px;
 }
 
-
 .final-name{
+
+  margin-bottom:14px;
+
+  color:var(--pink-dark);
 
   font-family:var(--font-script);
 
@@ -1604,18 +1687,15 @@ button{
       8vw,
       58px
     );
-
-  color:var(--pink-darker);
-
-  margin-bottom:14px;
 }
-
 
 .final-thanks{
 
-  font-family:var(--font-heading);
+  margin-bottom:18px;
 
-  font-style:italic;
+  color:var(--text);
+
+  font-family:var(--font-heading);
 
   font-size:
     clamp(
@@ -1624,18 +1704,14 @@ button{
       26px
     );
 
-  color:var(--text);
-
-  margin-bottom:18px;
+  font-style:italic;
 }
 
 .final-signature{
 
-  font-size:13.5px;
-
   color:var(--text-light);
 
-  letter-spacing:.02em;
+  font-size:13.5px;
 }
 
 
@@ -1646,14 +1722,12 @@ button{
 @media (max-width:480px){
 
   .modal-box{
-
     padding:
       30px
       22px;
   }
 
   .intro{
-
     padding:
       14vh
       22px
@@ -1661,25 +1735,18 @@ button{
   }
 
   .env-seal{
-
     width:80px;
     height:80px;
   }
 
   .letter-title{
-
-    font-size:25px;
-  }
-
-  .music-player{
-
-    gap:13px;
+    font-size:26px;
   }
 }
 
 
 /* =========================================================
-   REDUCED MOTION
+   ACCESSIBILITY
    ========================================================= */
 
 @media (prefers-reduced-motion:reduce){
@@ -1697,3 +1764,4 @@ button{
     scroll-behavior:auto !important;
   }
 }
+```
