@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100d10">
+  <title>Это для тебя Любимая</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="hero">
+    <div class="hero-image"></div>
+    <div class="hero-shade"></div>
+
+    <div class="petals" aria-hidden="true">
+      <span>🌟</span>
+      <span>🦋</span>
+      <span>🌟</span>
+      <span>🦋</span>
+      <span>🌟</span>
+      <span>🦋</span>
+      <span>🌟</span>
+      <span>🦋</span>
+      <span>🌟</span>
+      <span>🦋</span>
+      <span>🌟</span>
+      <span>🦋</span>
+      <span>🌟</span>
+       <span>🌟</span>
+      <span>🦋</span>
+      <span>🌟</span>
+      <span>🦋</span>
+      <span>🌟</span>
+      <span>🦋</span>
+      <span>🌟</span>
+      <span>🦋</span>
+      <span>🌟</span>
+      <span>🦋</span>
+      <span>🌟</span>
+      <span>🦋</span>
+      <span>🌟</span>
+      <span>🌟</span>
+      <span>🦋</span>
+      <span>🌟</span>
+      <span>🦋</span>
+      <span>🌟</span>
+      <span>🦋</span>
+      <span>🌟</span>
+      <span>🦋</span>
+      <span>🌟</span>
+      <span>🦋</span>
+      <span>🌟</span>
+      <span>🦋</span>
+      <span>🌟</span>
+    </div>
+
+    <section class="hero-content">
+      <p class="eyebrow">01.04.2025</p>
+
+      <h1>
+        Для тебя,<br>
+        <span>Любимая🫀🫠</span>
+      </h1>
+
+      <p class="subtitle">
+        Есть чувства, которые невозможно выразить словами.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="btn-no" id="noButton" type="button">
+          Не хочу💔
+        </button>
+
+        <button class="btn-yes" id="yesButton" type="button">
+          Дальше ❤️ <span>→</span>
+        </button>
+      </div>
+
+      <div class="scroll-indicator">
+        <span></span>
+      </div>
+    </section>
+
+    <p class="bottom-note">
+      С ЛЮБОВЬЮ Я СОЗДАЛ ДЛЯ ТЕБЯ ЭТОТ САЙТ,
+      ЧТОБЫ ПОДАРИТЬ ТЕБЕ ЧУСТВО СЧАСТЬЯ И РАДОСТИ
+    </p>
+  </main>
+
+  <!-- Экран ввода секретного кода -->
+  <div class="code-screen" id="codeScreen" hidden>
+    <div class="code-box">
+      <p class="code-label">ТОЛЬКО ДЛЯ ТЕБЯ, ЛЮБИМАЯ</p>
+
+      <h2>У нашей любви есть своя дата</h2>
+
+      <p class="code-hint">
+        Подсказка: день, когда в моей жизни появилась ты.
+      </p>
+
+      <input
+        type="password"
+        id="secretCode"
+        placeholder="Введи код"
+        inputmode="numeric"
+        maxlength="8"
+        autocomplete="off"
+      >
+
+      <button type="button" id="checkCode">
+        Открыть ❤️
+      </button>
+
+      <p id="codeMessage" role="status"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

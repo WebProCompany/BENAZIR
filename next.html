@@ -1,0 +1,1004 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#160c12">
+  <title>Моя любимая ❤️</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 25px;
+    }
+
+    body {
+      min-height: 100%;
+      background: #160c12;
+      color: #fff0f5;
+      font-family: "Segoe UI", sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Общий фон на всей странице */
+    .site-background {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image: url("https://www.hugflowers-online.net/sysimg/251211224427.png");
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.03);
+    }
+
+    .site-shade {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(20, 8, 15, .38),
+          rgba(25, 8, 17, .72) 45%,
+          rgba(22, 8, 16, .88)
+        );
+      pointer-events: none;
+    }
+
+    /* HERO */
+    .love-page {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 45px 24px 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .love-page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+        180deg,
+        rgba(15, 5, 12, .12),
+        rgba(15, 5, 12, .35) 65%,
+        rgba(22, 8, 16, .8)
+      );
+    }
+
+    .love-content {
+      width: 100%;
+      max-width: 390px;
+      animation: contentReveal 1.8s ease both;
+    }
+
+    .love-label {
+      margin-bottom: 25px;
+      color: #f0c3d0;
+      font-size: 9px;
+      letter-spacing: 4px;
+    }
+
+    .love-heart {
+      margin-bottom: 20px;
+      color: #f2c1d0;
+      font-size: 38px;
+      animation: heartBeat 3s ease-in-out infinite;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(42px, 11vw, 58px);
+      font-weight: 400;
+      line-height: 1.12;
+      text-shadow: 0 3px 25px rgba(0, 0, 0, .35);
+    }
+
+    h1 span {
+      display: block;
+      margin-top: 8px;
+      color: #f0bdcd;
+      font-style: italic;
+    }
+
+   
+.love-message {
+  max-width: 300px;
+  margin: 24px auto 0;
+  color: rgba(255, 244, 247, .92);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 22px;
+  line-height: 1.8;
+}
+
+
+    .love-date {
+      margin-top: 32px;
+      color: #ffe0eb;
+      font-size: 10px;
+      letter-spacing: 4px;
+    }
+
+    .love-footer {
+      position: absolute;
+      right: 15px;
+      bottom: 78px;
+      left: 15px;
+      color: rgba(255, 234, 240, .8);
+      font-size: 9px;
+      letter-spacing: 3px;
+    }
+
+    /* Скрол ба қисми аксҳо */
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 14px;
+      border: 1px solid rgba(255, 210, 225, .4);
+      border-radius: 25px;
+      background: rgba(35, 10, 22, .48);
+      color: #ffe1ec;
+      text-decoration: none;
+      font-size: 10px;
+      letter-spacing: 2px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      animation: scrollGlow 2.5s ease-in-out infinite;
+    }
+
+    .scroll-arrow {
+      font-size: 19px;
+      line-height: 1;
+      animation: arrowFloat 1.5s ease-in-out infinite;
+    }
+
+    /* Аксҳои хотиравӣ */
+    .memories-section {
+      position: relative;
+      width: min(100% - 36px, 520px);
+      margin: 0 auto;
+      padding: 75px 0 55px;
+      text-align: center;
+    }
+
+    .section-label {
+      color: #f1b7cb;
+      font-size: 10px;
+      letter-spacing: 4px;
+    }
+
+    .memories-section h2,
+    .music-section h2,
+    .letter-section h2 {
+      margin: 14px 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(34px, 8vw, 44px);
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    
+.section-description {
+  max-width: 300px;
+  margin: 0 auto 55px;
+  color: #f0d6e0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 22px;
+  line-height: 1.8;
+}
+
+
+    .memory-card {
+      width: min(82%, 330px);
+      margin: 0 auto 65px;
+      padding: 11px 11px 19px;
+      background: #fffaf7;
+      color: #4d2939;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, .35);
+      border-radius: 2px;
+      transition: transform .4s ease, box-shadow .4s ease;
+      animation: cardReveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 65%;
+    }
+
+    .memory-one { rotate: -3.5deg; }
+    .memory-two { rotate: 3deg; }
+    .memory-three { rotate: -2.5deg; }
+    .memory-four { rotate: 3.5deg; }
+
+   .memory-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  position: relative;
+  background: #f3d2df;
+  border-radius: 2px;
+}
+
+.memory-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s ease;
+}
+
+.memory-card:hover .memory-photo img {
+  transform: scale(1.06);
+}
+
+    .memory-caption {
+      margin: 16px 4px 9px;
+      font-family: "Great Vibes", cursive;
+      font-size: 27px;
+      line-height: 1.4;
+    }
+
+    .memory-date {
+      color: #9c6278;
+      font-size: 9px;
+      letter-spacing: 3px;
+    }
+
+    /* Музыка */
+    .music-section,
+    .letter-section {
+      position: relative;
+      width: min(100% - 36px, 500px);
+      margin: 0 auto;
+      padding: 65px 0;
+      text-align: center;
+      line-height: 1.9;
+    }
+
+    .music-description {
+      max-width: 310px;
+      margin: 0 auto 24px;
+      color: #f0d6e0;
+      font-size: 14px;
+    }
+
+    .music-placeholder {
+      padding: 24px 18px;
+      border: 1px solid rgba(255, 220, 232, .3);
+      border-radius: 18px;
+      background: rgba(35, 10, 22, .55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .music-symbol {
+      margin-bottom: 8px;
+      color: #f3bfd1;
+      font-size: 30px;
+    }
+
+    .music-placeholder p {
+      color: #e9bfd0;
+      font-size: 12px;
+    }
+
+
+/* Кортҳои мусиқӣ */
+.music-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  margin-top: 35px;
+}
+
+.song-card {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  padding: 14px;
+  text-align: left;
+  border: 1px solid rgba(255, 220, 232, .22);
+  border-radius: 22px;
+  background: rgba(42, 15, 30, .58);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, .18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: border-color .3s ease, transform .3s ease;
+}
+
+.song-card:active {
+  transform: scale(.985);
+}
+
+.song-cover {
+  width: 100px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, .3);
+}
+
+.song-info {
+  min-width: 0;
+}
+
+.song-number {
+  color: #e9a9c1;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.song-title {
+  margin: 7px 0 12px;
+  color: #fff0f5;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.song-button {
+  min-width: 112px;
+  padding: 9px 15px;
+  border: 1px solid rgba(255, 211, 228, .38);
+  border-radius: 30px;
+  background: rgba(232, 157, 190, .15);
+  color: #ffe6ef;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background .3s ease;
+}
+
+.song-button:hover {
+  background: rgba(232, 157, 190, .3);
+}
+
+.song-status {
+  margin-top: 8px;
+  color: #dcb2c3;
+  font-size: 10px;
+}
+
+
+/* Эквалайзери мусиқӣ */
+.song-visualizer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  height: 32px;
+  margin: 8px 0;
+}
+
+.song-visualizer span {
+  display: block;
+  width: 4px;
+  height: 5px;
+  border-radius: 5px;
+  background: linear-gradient(
+    180deg,
+    #ffd9e8,
+    #e58ab0
+  );
+  transform-origin: center;
+}
+
+.song-card.is-playing .song-visualizer span {
+  animation: musicBeat .65s ease-in-out infinite alternate;
+}
+
+.song-card.is-playing .song-visualizer span:nth-child(2n) {
+  animation-duration: .42s;
+}
+
+.song-card.is-playing .song-visualizer span:nth-child(3n) {
+  animation-duration: .8s;
+}
+
+.song-card.is-playing .song-visualizer span:nth-child(4n) {
+  animation-duration: .52s;
+}
+
+@keyframes musicBeat {
+  from {
+    transform: scaleY(.25);
+    opacity: .65;
+  }
+  to {
+    transform: scaleY(5);
+    opacity: 1;
+  }
+}
+
+
+@media (min-width: 480px) {
+  .song-card {
+    grid-template-columns: 115px minmax(0, 1fr);
+    gap: 20px;
+    padding: 17px;
+  }
+
+  .song-cover {
+    width: 115px;
+    height: 120px;
+  }
+}
+
+
+    /* Номаи ошиқона */
+    .letter-section {
+      padding-top: 75px;
+      padding-bottom: 100px;
+    }
+
+    .letter-text {
+      margin-top: 22px;
+      color: rgba(255, 241, 247, .94);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 22px;
+      line-height: 1.8;
+    }
+
+    .signature {
+      margin-top: 35px;
+      color: #f4bfd2;
+      font-family: "Great Vibes", cursive;
+      font-size: 35px;
+    }
+
+    .end-heart {
+      margin-top: 22px;
+      color: #f3bfd1;
+      font-size: 25px;
+      animation: heartBeat 3s ease-in-out infinite;
+    }
+
+    /* Анимации */
+    @keyframes contentReveal {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+    }
+
+    @keyframes arrowFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(7px); }
+    }
+
+    @keyframes scrollGlow {
+      0%, 100% { box-shadow: 0 0 8px rgba(255,150,190,.08); }
+      50% { box-shadow: 0 0 22px rgba(255,150,190,.28); }
+    }
+
+    @keyframes cardReveal {
+      from {
+        opacity: .3;
+        transform: translateY(45px) scale(.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media (hover: hover) {
+      .memory-card:hover {
+        box-shadow: 0 24px 60px rgba(0, 0, 0, .45);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    
+/* Плеери хурди мусиқии Zanakjon */
+.mini-player {
+  position: fixed;
+  left: 20px;
+  bottom: 25px;
+  z-index: 9999;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+  filter: drop-shadow(0 5px 14px rgba(0, 0, 0, .4));
+}
+
+.mini-player:active {
+  cursor: grabbing;
+}
+
+.mini-player-cover {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 210, 230, .85);
+}
+
+.mini-player.is-playing .mini-player-cover {
+  animation: miniSongRotate 7s linear infinite;
+}
+
+.mini-player-button {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 50%;
+  background: rgba(35, 10, 22, .32);
+  color: white;
+  font-size: 23px;
+  text-shadow: 0 1px 5px #3b1428;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes miniSongRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mini-player.is-playing .mini-player-cover {
+    animation-duration: 20s;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="site-background" aria-hidden="true"></div>
+  <div class="site-shade" aria-hidden="true"></div>
+
+  <main>
+    <section class="love-page" id="top">
+      <div class="love-content">
+        <p class="love-label">МОЯ САМАЯ БОЛЬШАЯ ЛЮБОВЬ</p>
+        <div class="love-heart">♡</div>
+
+        <h1>
+          Моя любимая
+          <span></span>
+        </h1>
+
+        <p class="love-message">
+          Моя любимая история началась с тебя…
+          <br>
+          И каждый день я счастлив, что однажды
+          наши пути пересеклись. ❤️
+        </p>
+
+        <p class="love-date">01 · 04 · 2025</p>
+      </div>
+
+      <p class="love-footer">С ЛЮБОВЬЮ · ТВОЙ АБДУ</p>
+
+      <a class="scroll-down" href="#memories">
+        <span>Листай вниз</span>
+        <span class="scroll-arrow">↓</span>
+      </a>
+    </section>
+
+    <section class="memories-section" id="memories">
+      <p class="section-label">НАША ИСТОРИЯ</p>
+      <h2>Мгновения с тобой</h2>
+      <p class="section-description">
+        Маленькие моменты, которые навсегда в моём сердце.
+      </p>
+
+      <article class="memory-card memory-one">
+  <div class="memory-photo">
+    <img src="photos/photo1.jpg" alt="Наша первая память">
+  </div>
+  <p class="memory-caption">Твой взгляд — мой любимый мир</p>
+  <p class="memory-date">МОЁ СЧАСТЬЕ</p>
+</article>
+
+<article class="memory-card memory-two">
+  <div class="memory-photo">
+    <img src="photos/photo2.jpg" alt="Наш тёплый момент">
+  </div>
+  <p class="memory-caption">С тобой даже тишина особенная</p>
+  <p class="memory-date">МОЙ ТЁПЛЫЙ МОМЕНТ</p>
+</article>
+
+<article class="memory-card memory-three">
+  <div class="memory-photo">
+    <img src="photos/photo3.jpg" alt="Моё любимое воспоминание">
+  </div>
+  <p class="memory-caption">Я бы снова выбрал тебя</p>
+  <p class="memory-date">ВСЕГДА ТЫ</p>
+</article>
+
+<article class="memory-card memory-four">
+  <div class="memory-photo">
+    <img src="photos/photo4.jpg" alt="Моя Занакчон">
+  </div>
+  <p class="memory-caption">Самая красивая часть моей истории</p>
+  <p class="memory-date">МОЯ ЗАНАКЧОН</p>
+</article>
+</section>
+
+    <section class="music-section" id="music">
+      <p class="section-label">ТОЛЬКО ДЛЯ ТЕБЯ</p>
+      <h2>Наша мелодия</h2>
+      <p class="music-description">
+        Пусть эта музыка обнимет тебя за меня, даже когда меня нет рядом. ❤️‍🩹
+      </p>
+
+    
+<div class="music-list">
+
+  <article class="song-card">
+    <img class="song-cover" src="images/song1.jpg" alt="Обложка первой песни">
+    <div class="song-info">
+      <p class="song-number">CARLEONE</p>
+      <h3 class="song-title">Шамси Табрези</h3>
+      <button class="song-button" type="button" data-audio="song-audio-1">▶ Play</button>
+      <p class="song-status">Таджикский песня❤️</p>
+      
+<div class="song-visualizer" aria-hidden="true">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+</div>
+
+      <audio id="song-audio-1" src="music/song1.mp3" preload="metadata"></audio>
+    </div>
+  </article>
+
+  <article class="song-card">
+    <img class="song-cover" src="images/song2.jpg" alt="Обложка второй песни">
+    <div class="song-info">
+      <p class="song-number">CARLEONE</p>
+      <h3 class="song-title">Тасодуфан</h3>
+      <button class="song-button" type="button" data-audio="song-audio-2">▶ Play</button>
+      <p class="song-status">Таджикский песня❤️</p>
+      
+<div class="song-visualizer" aria-hidden="true">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+</div>
+
+      <audio id="song-audio-2" src="music/song2.mp3" preload="metadata"></audio>
+    </div>
+  </article>
+
+  <article class="song-card">
+    <img class="song-cover" src="images/song3.jpg" alt="Обложка третьей песни">
+    <div class="song-info">
+      <p class="song-number">Xcho & MOT</p>
+      <h3 class="song-title">Баллада</h3>
+      <button class="song-button" type="button" data-audio="song-audio-3">▶ Play</button>
+      <p class="song-status">Русский песня❤️</p>
+      
+<div class="song-visualizer" aria-hidden="true">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+</div>
+
+      <audio id="song-audio-3" src="music/song3.mp3" preload="metadata"></audio>
+    </div>
+  </article>
+
+  <article class="song-card">
+    <img class="song-cover" src="images/song4.jpg" alt="Обложка четвёртой песни">
+    <div class="song-info">
+      <p class="song-number">NARKOZ</p>
+      <h3 class="song-title">Баста-Кинолета</h3>
+      <button class="song-button" type="button" data-audio="song-audio-4">▶ Play</button>
+      <p class="song-status">Русский песня❤️</p>
+      
+<div class="song-visualizer" aria-hidden="true">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+</div>
+
+      <audio id="song-audio-4" src="music/song4.mp3" preload="metadata"></audio>
+    </div>
+  </article>
+
+  <article class="song-card">
+    <img class="song-cover" src="images/song5.jpg" alt="Обложка пятой песни">
+    <div class="song-info">
+      <p class="song-number">NOVAN</p>
+      <h3 class="song-title">Bi To Har Shab</h3>
+      <button class="song-button" type="button" data-audio="song-audio-5">▶ Play</button>
+      <p class="song-status">IRAN - песня❤️</p>
+      
+<div class="song-visualizer" aria-hidden="true">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+</div>
+
+      <audio id="song-audio-5" src="music/song5.mp3" preload="metadata"></audio>
+    </div>
+  </article>
+
+  <article class="song-card">
+    <img class="song-cover" src="images/song6.jpg" alt="Обложка шестой песни">
+    <div class="song-info">
+      <p class="song-number">NOVAN</p>
+      <h3 class="song-title">Junami</h3>
+      <button class="song-button" type="button" data-audio="song-audio-6">▶ Play</button>
+      <p class="song-status">IRAN - песнья ❤️</p>
+      
+<div class="song-visualizer" aria-hidden="true">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+</div>
+
+      <audio id="song-audio-6" src="music/song6.mp3" preload="metadata"></audio>
+    </div>
+  </article>
+
+</div>
+
+    </section>
+
+    <section class="letter-section" id="letter">
+      <p class="section-label">МОЕЙ ЛЮБИМОЙ</p>
+      <h2>Занакчон, ❤️</h2>
+
+      <p class="letter-text">
+        Если бы мне пришлось снова выбирать,
+        я бы снова выбрал тебя.
+        <br><br>
+        Ты — часть моего счастья, моих мыслей
+        и моей самой красивой истории.
+        <br><br>
+        И если у нашей истории будет тысяча страниц,
+        я хочу прожить каждую из них рядом с тобой.
+      </p>
+
+      <p class="signature">С любовью, твой Абду</p>
+      <div class="end-heart">♡</div>
+    </section>
+
+    
+<!-- Плеери хурди мусиқии Zanakjon -->
+<div class="mini-player" id="miniPlayer">
+  <img
+    class="mini-player-cover"
+    src="images/mini-song.jpg"
+    alt="Суруди мо"
+    draggable="false"
+  >
+  <button
+    class="mini-player-button"
+    id="miniPlayerButton"
+    type="button"
+    aria-label="Навохтани мусиқӣ"
+  >▶</button>
+</div>
+
+<script>
+  // Сурудҳои кортҳои асосӣ
+  const songButtons = document.querySelectorAll(".song-button");
+  const songAudios = document.querySelectorAll(".song-card audio");
+
+  songButtons.forEach((button) => {
+    button.addEventListener("click", async () => {
+      const audio = document.getElementById(button.dataset.audio);
+      if (!audio) return;
+
+      if (!audio.paused) {
+        audio.pause();
+        return;
+      }
+
+      songAudios.forEach((otherAudio) => {
+        if (otherAudio !== audio) {
+          otherAudio.pause();
+          otherAudio.currentTime = 0;
+        }
+      });
+
+      miniSong.pause();
+
+      try {
+        await audio.play();
+      } catch (error) {
+        console.error("Хатои навохтани суруд:", error);
+      }
+    });
+  });
+
+  songAudios.forEach((audio) => {
+    const button = document.querySelector(
+      `[data-audio="${audio.id}"]`
+    );
+    const card = button?.closest(".song-card");
+
+    audio.addEventListener("play", () => {
+      if (button) button.textContent = "⏸ Pause";
+      card?.classList.add("is-playing");
+    });
+
+    audio.addEventListener("pause", () => {
+      if (button) button.textContent = "▶ Play";
+      card?.classList.remove("is-playing");
+    });
+
+    audio.addEventListener("ended", () => {
+      if (button) button.textContent = "▶ Play";
+      card?.classList.remove("is-playing");
+    });
+  });
+
+  // Плеери хурди мусиқӣ
+  const miniPlayer = document.getElementById("miniPlayer");
+  const miniPlayerButton = document.getElementById("miniPlayerButton");
+  const miniSong = new Audio("music/mini-song.mp3");
+
+  miniSong.loop = true;
+
+  miniPlayerButton.addEventListener("click", async (event) => {
+    event.stopPropagation();
+
+    if (miniSong.paused) {
+      songAudios.forEach((audio) => audio.pause());
+
+      try {
+        await miniSong.play();
+      } catch (error) {
+        console.error("Хатои навохтани мусиқӣ:", error);
+      }
+    } else {
+      miniSong.pause();
+    }
+  });
+
+  miniSong.addEventListener("play", () => {
+    miniPlayer.classList.add("is-playing");
+    miniPlayerButton.textContent = "⏸";
+    miniPlayerButton.setAttribute("aria-label", "Таваққуф");
+  });
+
+  miniSong.addEventListener("pause", () => {
+    miniPlayer.classList.remove("is-playing");
+    miniPlayerButton.textContent = "▶";
+    miniPlayerButton.setAttribute("aria-label", "Навохтан");
+  });
+
+  
+
+  // Ҷойивазкунии плеер бо муш ё ангушт
+  let dragging = false;
+  let startX = 0;
+  let startY = 0;
+  let initialLeft = 0;
+  let initialTop = 0;
+
+  miniPlayer.addEventListener("pointerdown", (event) => {
+    if (event.target.closest("button")) return;
+    if (event.button !== 0 && event.pointerType === "mouse") return;
+
+    const rect = miniPlayer.getBoundingClientRect();
+
+    dragging = true;
+    startX = event.clientX;
+    startY = event.clientY;
+    initialLeft = rect.left;
+    initialTop = rect.top;
+
+    miniPlayer.style.left = `${rect.left}px`;
+    miniPlayer.style.top = `${rect.top}px`;
+    miniPlayer.style.right = "auto";
+    miniPlayer.style.bottom = "auto";
+
+    miniPlayer.setPointerCapture(event.pointerId);
+    event.preventDefault();
+  });
+
+  miniPlayer.addEventListener("pointermove", (event) => {
+    if (!dragging) return;
+
+    const dx = event.clientX - startX;
+    const dy = event.clientY - startY;
+
+    const maxLeft = Math.max(
+      0,
+      window.innerWidth - miniPlayer.offsetWidth
+    );
+    const maxTop = Math.max(
+      0,
+      window.innerHeight - miniPlayer.offsetHeight
+    );
+
+    const left = Math.max(
+      0,
+      Math.min(maxLeft, initialLeft + dx)
+    );
+    const top = Math.max(
+      0,
+      Math.min(maxTop, initialTop + dy)
+    );
+
+    miniPlayer.style.left = `${left}px`;
+    miniPlayer.style.top = `${top}px`;
+  });
+
+  function stopDragging() {
+    dragging = false;
+  }
+
+  miniPlayer.addEventListener("pointerup", stopDragging);
+  miniPlayer.addEventListener("pointercancel", stopDragging);
+  miniPlayer.addEventListener("lostpointercapture", stopDragging);
+
+  window.addEventListener("resize", () => {
+    const rect = miniPlayer.getBoundingClientRect();
+
+    const maxLeft = Math.max(
+      0,
+      window.innerWidth - miniPlayer.offsetWidth
+    );
+    const maxTop = Math.max(
+      0,
+      window.innerHeight - miniPlayer.offsetHeight
+    );
+
+    miniPlayer.style.left = `${Math.max(
+      0,
+      Math.min(maxLeft, rect.left)
+    )}px`;
+
+    miniPlayer.style.top = `${Math.max(
+      0,
+      Math.min(maxTop, rect.top)
+    )}px`;
+  });
+
+
+</script>
+</main>
+</body>
+</html>
