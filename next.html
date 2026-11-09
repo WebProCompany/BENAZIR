@@ -821,9 +821,16 @@
 
 <script>
   // Сурудҳои кортҳои асосӣ
-  const songButtons = document.querySelectorAll(".song-button");
-  const songAudios = document.querySelectorAll(".song-card audio");
 
+const songButtons = document.querySelectorAll(".song-button");
+const songAudios = document.querySelectorAll(".song-card audio");
+
+const miniPlayer = document.getElementById("miniPlayer");
+const miniPlayerButton = document.getElementById("miniPlayerButton");
+const miniSong = new Audio("music/mini-song.mp3");
+
+miniSong.loop = true;
+  
   songButtons.forEach((button) => {
     button.addEventListener("click", async () => {
       const audio = document.getElementById(button.dataset.audio);
@@ -874,9 +881,7 @@
   });
 
   // Плеери хурди мусиқӣ
-  const miniPlayer = document.getElementById("miniPlayer");
-  const miniPlayerButton = document.getElementById("miniPlayerButton");
-  const miniSong = new Audio("music/mini-song.mp3");
+ 
 
   miniSong.loop = true;
 
